@@ -61,6 +61,8 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     } else if (msg.type === "hoverPause") {
       const tabId = sender?.tab?.id;
       if (tabId != null) {
+        const state = await getTabState(tabId);
+        if (!state) return; // disabled; don't show any badge
         try {
           await chrome.action.setBadgeText({ tabId, text: msg.paused ? "PAU" : "ON" });
         } catch {}

@@ -35,6 +35,7 @@
   }
 
   function pauseTimer() {
+    if (currentSeconds == null) return; // not enabled; ignore
     if (isPaused) return;
     if (timer) {
       remainingMs = Math.max(0, (endAtMs ?? Date.now()) - Date.now());
@@ -45,6 +46,7 @@
   }
 
   function resumeTimer() {
+    if (currentSeconds == null) return; // not enabled; ignore
     if (!isPaused) return;
     isPaused = false;
     if (remainingMs != null && currentSeconds != null) {
