@@ -9,6 +9,7 @@ Features
 - Enable/Update and Disable with one click
 - Per-tab state (does not affect other tabs)
 - Badge indicator shows when auto-reload is active
+- Pauses countdown while your mouse is over the page; resumes when you leave
 
 ![Extension popup showing controls](docs/extension-popup.png)
 
@@ -28,6 +29,7 @@ Usage
 2. Click the extension icon to open the popup.
 3. Enter the interval in seconds (e.g., 60) and click "Enable / Update".
 4. The extension badge should show "ON" for that tab. The page will reload after the set interval.
+5. Hover your mouse over the page to temporarily pause the countdown; move the mouse off the page (or out of the window) to resume.
 5. To stop auto-reloading for the current tab, click "Disable" in the popup.
 
 Permissions explained
