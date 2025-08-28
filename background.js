@@ -58,7 +58,24 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       const tabId = sender?.tab?.id;
       const state = tabId != null ? await getTabState(tabId) : null;
       sendResponse({ state, tabId });
+    } else if (msg.type === "hoverPause") {
+      const tabId = sender?.tab?.id;
+      if (tabId != null) {
+        try {
+          await chrome.action.setBadgeText({ tabId, text: msg.paused ? "PAU" : "ON" });
+        } catch {}
+      }
     }
   })();
   return true; // keep channel open for async sendResponse
+});
+
+// After navigation/reload, ensure the badge reflects enabled state
+chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
+  if (info.status === "complete") {
+    const state = await getTabState(tabId);
+    try {
+      await chrome.action.setBadgeText({ tabId, text: state ? "ON" : "" });
+    } catch {}
+  }
 });

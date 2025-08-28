@@ -41,6 +41,7 @@
     }
     clearTimer();
     isPaused = true;
+    try { chrome.runtime.sendMessage({ type: "hoverPause", paused: true }); } catch {}
   }
 
   function resumeTimer() {
@@ -49,6 +50,7 @@
     if (remainingMs != null && currentSeconds != null) {
       scheduleMs(remainingMs);
     }
+    try { chrome.runtime.sendMessage({ type: "hoverPause", paused: false }); } catch {}
   }
 
   // Get initial state for this tab (if already enabled)
