@@ -8,7 +8,6 @@ Features
 - Per-tab state (does not affect other tabs)
 - Badge indicator shows when auto-reload is active
 
-Screenshot
 ![Extension popup showing controls](docs/extension-popup.png)
 
 How it works (high-level)
