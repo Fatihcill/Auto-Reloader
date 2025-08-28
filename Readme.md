@@ -1,5 +1,7 @@
 Simple Auto Reloader
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A minimal Chrome extension that auto-reloads the current tab at a user-defined interval (in seconds). It stores state per-tab in session storage and shows an "ON" badge when enabled.
 
 Features
@@ -60,6 +62,6 @@ Troubleshooting
 - Interval not sticking across tabs: By design, state is per-tab and cleared when a tab closes.
 
 License
-- No explicit license provided. Add one if you plan to distribute.
+- This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 
